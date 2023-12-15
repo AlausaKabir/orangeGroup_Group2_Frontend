@@ -1,7 +1,5 @@
 # Connect Us
 
-# Overview
-
 ## Get started
 
 ## 🖥 Environment Support
