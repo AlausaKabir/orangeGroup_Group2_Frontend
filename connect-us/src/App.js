@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import Layout from './layout/DashboardLayout/Layout';
+import Home from './layout/HomeLayout/Home';
 
 function App() {
   return (
-    <div className="h-screen flex items-center justify-center font-nunito">
-      <button className="bg-orange-600 text-white text-xl py-3 px-8 rounded-sm">Click me</button>
+    <div className="h-screen font-nunito">
+      <Layout />
+      {/* <Home /> */}
     </div>
   );
 }
