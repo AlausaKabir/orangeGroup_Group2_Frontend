@@ -13,14 +13,14 @@ const SignUp = () => {
               name="firstName"
               placeholder="First name"
               required
-              className="border border-blue-400 w-full py-2  md:w-[180px] mt-4 px-10 rounded-md outline-none"
+              className="border border-blue-400 w-full py-2  md:w-[180px] mt-4 px-5 rounded-md outline-none"
             />
             <input
               type="text"
               name="lastName"
               placeholder="Last name"
               required
-              className="border border-blue-400 w-full py-2 md:w-[180px] mt-4 px-10 rounded-md outline-none"
+              className="border border-blue-400 w-full py-2 md:w-[180px] mt-4 px-5 rounded-md outline-none"
             />
           </div>
 
@@ -29,33 +29,33 @@ const SignUp = () => {
             name="phone"
             placeholder="Phone number"
             required
-            className="border border-blue-400 w-full py-2  mt-4 px-10 rounded-md outline-none"
+            className="border border-blue-400 w-full py-2  mt-4 px-5 rounded-md outline-none"
           />
           <input
             type="email"
             name="email"
             placeholder="Enter email address"
             required
-            className="border border-blue-400 w-full py-2  mt-4 px-10 rounded-md outline-none"
+            className="border border-blue-400 w-full py-2  mt-4 px-5 rounded-md outline-none"
           />
           <input
             type="password"
             name="password"
             placeholder="Enter password"
             required
-            className="border border-blue-400 w-full py-2 mt-4 px-10 rounded-md outline-none"
+            className="border border-blue-400 w-full py-2 mt-4 px-5 rounded-md outline-none"
           />
 
           <button
             type="submit"
-            className=" w-full py-2  mt-4 px-10 rounded-md bg-orange-500 text-white font-bold hover:bg-white hover:border hover:border-black hover:text-black"
+            className=" w-full py-2  mt-4 px-5 rounded-md bg-orange-500 text-white font-bold hover:bg-white hover:border hover:border-black hover:text-black"
           >
             Sign up
           </button>
         </form>
         <p className="mt-4 text-sm">
-          Already have an account?{" "}
-          <span>
+          Already have an account?{" "}  
+           <span>
             <Link
               to="/Login"
               className="text-start text-blue-500 hover:underline"
