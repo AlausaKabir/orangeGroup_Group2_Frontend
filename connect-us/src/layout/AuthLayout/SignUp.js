@@ -11,14 +11,14 @@ const SignUp = () => {
             <input
               type="text"
               name="firstName"
-              placeholder="first Name"
+              placeholder="First name"
               required
               className="border border-blue-400 w-full py-2  md:w-[180px] mt-4 px-10 rounded-md outline-none"
             />
             <input
               type="text"
               name="lastName"
-              placeholder="Last Name"
+              placeholder="Last name"
               required
               className="border border-blue-400 w-full py-2 md:w-[180px] mt-4 px-10 rounded-md outline-none"
             />
@@ -27,7 +27,7 @@ const SignUp = () => {
           <input
             type="tel"
             name="phone"
-            placeholder="Phone Number"
+            placeholder="Phone number"
             required
             className="border border-blue-400 w-full py-2  mt-4 px-10 rounded-md outline-none"
           />
