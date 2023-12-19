@@ -1,10 +1,12 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Login from './Components/Login/Login';
+
 
 function App() {
   return (
-    <div className="h-screen flex items-center justify-center font-nunito">
-      <button className="bg-orange-600 text-white text-xl py-3 px-8 rounded-sm">Click me</button>
+    <div>
+   <Login />
     </div>
   );
 }
