@@ -6,7 +6,7 @@ function AuthRequired() {
     if (!isLoggedIn) {
         return (
             <Navigate 
-                to="/login" 
+                to="/SignUp" 
                 replace
             />)
     }
