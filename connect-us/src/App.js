@@ -1,10 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import ResetPassword from './layout/AuthLayout/ResetPassword';
+import SignUp from './layout/AuthLayout/SignUp';
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="h-screen flex items-center justify-center font-nunito">
-      <button className="bg-orange-600 text-white text-xl py-3 px-8 rounded-sm">Click me</button>
+      <Routes>
+        <Route path= '/' element={<SignUp />} />
+        <Route path= '/ResetPassword' element={<ResetPassword />} />
+      </Routes>
     </div>
   );
 }
