@@ -64,7 +64,7 @@ function SignUp() {
         .then((response) => {
           console.log(response.data, 'response.data');
           toast.success("Successfully registered");
-          navigate("/DashboardLayout");
+          navigate("/Login");
         })
         .catch((err) => {
           if (err.response) {

@@ -1,16 +1,16 @@
-import { Outlet, Navigate } from "react-router-dom"
+// components/Auth/AuthRequired.js
+import React from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
-function AuthRequired() {
-    const isLoggedIn = true
-    
-    if (!isLoggedIn) {
-        return (
-            <Navigate 
-                to="/SignUp" 
-                replace
-            />)
+const AuthRequired = () => {
+    const { isAuthenticated } = useAuth();
+
+    if (!isAuthenticated) {
+        return <Navigate to="/login" replace />;
     }
-    return <Outlet />
-}
+
+    return <Outlet />;
+};
 
 export default AuthRequired;
