@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -64,7 +64,7 @@ function SignUp() {
         .then((response) => {
           console.log(response.data, 'response.data');
           toast.success("Successfully registered");
-          navigate("/DashboardLayout");
+          navigate("/login");
         })
         .catch((err) => {
           if (err.response) {
