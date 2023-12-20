@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center h-80 w-72 md:w-[400px]">
+      <div className="flex flex-col justify-center items-center mx-auto h-80 w-72 md:w-[400px]">
         <h1 className="text-3xl font-bold text-center ">Welcome Back</h1>
         <div className='w-8 bg-black h-[3px] mb-6'></div>
         <form>
