@@ -74,9 +74,6 @@ const Login = () => {
   };
 
 
-
-
-
   return (
     <div>
       <div className="flex flex-col justify-center items-center mx-auto h-80 w-72 md:w-[400px]">
