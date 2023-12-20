@@ -47,7 +47,8 @@ const Login = () => {
     if (validate()) {
       axios.post("https://connectus-4ev0.onrender.com/auth/login", data)
         .then((response) => {
-          console.log(response.data, 'response.data');
+          localStorage.setItem('userData', JSON.stringify(response.data.data.user));
+          localStorage.setItem('accessToken', response.data.data.accessToken);
           toast.success("Welcome back");
           navigate("/dashboard");
         })
