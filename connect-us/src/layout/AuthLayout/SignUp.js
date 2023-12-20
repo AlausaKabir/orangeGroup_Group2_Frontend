@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function SignUp() {
-  // const [id, idChange] = useState("");
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -16,64 +14,75 @@ function SignUp() {
     password: '',
   });
 
-  const handle =(e) => {
-    const newData = {...data}
-    newData[e.target.id] = e.target.value
-    setData(newData)
-  }
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setData((prevData) => ({ ...prevData, [id]: value }));
+  };
 
   const navigate = useNavigate();
 
   const validate = () => {
     let proceed = true;
     let errorMessage = "Please enter your ";
-    if (data.firstName === null || data.firstName === "") {
+
+    if (!data.firstName) {
       proceed = false;
-      errorMessage += "first Name,";
+      errorMessage += "first name, ";
     }
-    if (data.lastName === null || data.lastName === "") {
+    if (!data.lastName) {
       proceed = false;
-      errorMessage += " last Name,";
+      errorMessage += "last name, ";
     }
-    if (data.phone === null || data.phone === "") {
+    if (!data.phone) {
       proceed = false;
-      errorMessage += " phone Number,";
+      errorMessage += "phone number, ";
     }
-    if (data.email === null || data.email === "") {
+    if (!data.email) {
       proceed = false;
-      errorMessage += "email Address and ";
+      errorMessage += "email address, ";
     }
-    if (data.password === null || data.password === "") {
+    if (!data.password) {
       proceed = false;
-      errorMessage += "password";
+      errorMessage += "password, ";
     }
+
     if (!proceed) {
-      toast.warning(errorMessage);
-    } else if (/^[a-zA-Z0-9]+@[a-zA-Z0]+\.[A-Za-z]+$/.test(data.email)) {
-    } else {
+      toast.warning(errorMessage.slice(0, -2));
+    } else if (!/^[a-zA-Z0-9]+@[a-zA-Z0]+\.[A-Za-z]+$/.test(data.email)) {
       proceed = false;
       toast.warning("Please enter a valid email address!");
     }
+
     return proceed;
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // let register = { data };
+
     if (validate()) {
-      axios.post("http://localhost:3000/auth/signup", {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        phone: data.phone,
-        password: data.password
-      })
-        .then((Response) => {
+      axios.post("https://connectus-4ev0.onrender.com/auth/signup", data)
+        .then((response) => {
+          console.log(response.data, 'response.data');
           toast.success("Successfully registered");
           navigate("/DashboardLayout");
         })
         .catch((err) => {
-          toast.error("Error registering");
+          if (err.response) {
+            const { data: errorData, status } = err.response;
+            console.error(`Server responded with error status: ${status}`, errorData);
+
+            if (errorData && errorData.message) {
+              toast.error(`Error: ${errorData.message}`);
+            } else {
+              toast.error("An unexpected error occurred. Please try again later.");
+            }
+          } else if (err.request) {
+            console.error("No response received from the server. Check your internet connection or try again later.");
+            toast.error("No response received from the server. Check your internet connection or try again later.");
+          } else {
+            console.error("Error setting up the request:", err.message);
+            toast.error("An unexpected error occurred. Please try again later.");
+          }
         });
     }
   };
@@ -87,16 +96,16 @@ function SignUp() {
           <div className="flex flex-wrap md:space-x-9">
             <input
               value={data.firstName}
-              onChange={(e) => handle(e)}
+              onChange={handleInputChange}
               id="firstName"
               type="text"
               name="firstName"
               placeholder="First name"
-              className="border border-blue-400 w-full py-2  md:w-[180px] mt-4 px-5 rounded-md outline-none"
+              className="border border-blue-400 w-full py-2 md:w-[180px] mt-4 px-5 rounded-md outline-none"
             />
             <input
               value={data.lastName}
-              onChange={(e) => handle(e)}
+              onChange={handleInputChange}
               id="lastName"
               type="text"
               name="lastName"
@@ -107,25 +116,25 @@ function SignUp() {
 
           <input
             value={data.phone}
-            onChange={(e) => handle(e)}
+            onChange={handleInputChange}
             id="phone"
             type="tel"
             name="phone"
             placeholder="Phone number"
-            className="border border-blue-400 w-full py-2  mt-4 px-5 rounded-md outline-none"
+            className="border border-blue-400 w-full py-2 mt-4 px-5 rounded-md outline-none"
           />
           <input
             value={data.email}
-            onChange={(e) => handle(e)}
+            onChange={handleInputChange}
             id="email"
             type="text"
             name="email"
             placeholder="Enter email address"
-            className="border border-blue-400 w-full py-2  mt-4 px-5 rounded-md outline-none"
+            className="border border-blue-400 w-full py-2 mt-4 px-5 rounded-md outline-none"
           />
           <input
             value={data.password}
-            onChange={(e) => handle(e)}
+            onChange={handleInputChange}
             id="password"
             type="password"
             name="password"
@@ -134,7 +143,8 @@ function SignUp() {
           />
 
           <button
-            className=" w-full py-2  mt-4 px-5 rounded-md bg-orange-500 text-white font-bold hover:bg-white hover:border hover:border-black hover:text-black"
+            type="submit"
+            className="w-full py-2 mt-4 px-5 rounded-md bg-orange-500 text-white font-bold hover:bg-white hover:border hover:border-black hover:text-black"
           >
             Sign up
           </button>
@@ -154,4 +164,5 @@ function SignUp() {
     </>
   );
 }
+
 export default SignUp;
