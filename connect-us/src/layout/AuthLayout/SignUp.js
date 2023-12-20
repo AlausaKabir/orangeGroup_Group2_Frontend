@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
+function SignUp() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center h-80 w-72 md:w-[400px]">
+      <div className="flex flex-col justify-center items-center h-80 w-72 mx-auto mt-28 md:w-[400px]">
         <h1 className="text-3xl font-bold text-center mb-6">Account Set-up</h1>
         <form>
           <div className="flex flex-wrap md:space-x-9">
@@ -68,5 +68,4 @@ const SignUp = () => {
     </>
   );
 };
-
 export default SignUp;

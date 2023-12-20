@@ -1,17 +1,9 @@
 import './App.css';
-import ResetPassword from './layout/AuthLayout/ResetPassword';
-import SignUp from './layout/AuthLayout/SignUp';
-import Login from './layout/AuthLayout/Login';
-import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="h-screen flex items-center justify-center font-nunito">
-      <Routes>
-        <Route path= '/' element={<SignUp />} />
-        <Route path= '/ResetPassword' element={<ResetPassword />} />
-        <Route path='/Login' element={<Login />} />
-      </Routes>
+      <button className="bg-orange-600 text-white text-xl py-3 px-8 rounded-sm">Click me</button>
     </div>
   );
 }

@@ -1,11 +1,10 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 
-
-const ResetPassword = () => {
+function ResetPassword() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center h-80 w-72 ">
+      <div className="flex flex-col justify-center items-center mt-20 mx-auto h-80 w-72 ">
         <h1 className="text-3xl font-bold text-center mb-8">Forgot Password</h1>
         <form>
           <input
