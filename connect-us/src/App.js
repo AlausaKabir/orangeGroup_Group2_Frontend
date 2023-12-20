@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './layout/AuthLayout/AuthContext';
 import MainLayout from './layout/DashboardLayout/MainLayout';
 import Home from './layout/pages/LandingPage';
 import SignUp from "./layout/AuthLayout/SignUp"
@@ -14,25 +15,25 @@ import ResetPassword from './layout/AuthLayout/ResetPassword';
 function App() {
   return (
     <div className="h-screen font-nunito">
-      <BrowserRouter>
+      <AuthProvider>
         <Routes>
-            <Route path="/" element={<MainLayout />}>
-                <Route index element={<Home />} />
-                <Route path="SignUp" element={<SignUp />}/>
-                <Route path="login" element={<Login />}/>
-                <Route path="ResetPassword" element={<ResetPassword />}/>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="SignUp" element={<SignUp />} />
+            <Route path="login" element={<Login />} />
+            <Route path="ResetPassword" element={<ResetPassword />} />
 
-                <Route element={<AuthRequired />}>
-                    <Route path="dashboard" element={<DashboardLayout />}>
-                        <Route index element={<ChatLayout />} />
-                        <Route path="chat" element={<ChatLayout />} />
-                        <Route path="news" element={<News />} />
-                    </Route>
-                </Route>
-                <Route path="*" element={<NotFound />} />
+            <Route element={<AuthRequired />}>
+              <Route path="Dashboard" element={<DashboardLayout />}>
+                <Route index element={<ChatLayout />} />
+                <Route path="chat" element={<ChatLayout />} />
+                <Route path="news" element={<News />} />
+              </Route>
             </Route>
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
-      </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
