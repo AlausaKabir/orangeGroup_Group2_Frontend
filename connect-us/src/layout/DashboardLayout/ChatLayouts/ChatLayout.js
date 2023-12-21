@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-
 import Sidebar from "./Sidebar";
 import { toast } from "react-toastify";
 
@@ -21,7 +20,7 @@ function ChatLayout() {
         const { name, value } = e.target;
         setMessageData((prevData) => ({ ...prevData, [name]: value }));
       };
-
+      
     const data = {
         "recipients": [
             {"user": "657ff73389fa054eacac57c1"},
@@ -61,8 +60,6 @@ function ChatLayout() {
         }
       };
     
-
-
     useEffect(() => {
         const fetchData = async () => {
         try {
@@ -72,12 +69,9 @@ function ChatLayout() {
         } catch (err) {
             console.log('Error:', err.message);
         }
-        console.log(messages)
         };
         fetchData();
     }, [setMessages]);
-
-
 
     return ( 
         <div className="bg-pink-50 font-nunito">
