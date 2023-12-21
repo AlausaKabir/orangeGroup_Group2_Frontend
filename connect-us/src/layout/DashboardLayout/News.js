@@ -31,7 +31,7 @@ import axios from 'axios';
         <div>
           <h1 className="text-3xl text-center mt-8 font-semibold">Announcements</h1>
           {responseData.map(eachNews => {
-            return <div className="bg-pink-50 py-2 px-3 mx-4 my-8 rounded-sm">
+            return <div key={eachNews.id} className="bg-pink-50 py-2 px-3 mx-4 my-8 rounded-sm">
               <h2 className="text-2xl mt-2 pb-2">{eachNews.title}</h2>
               <p className="text-lg pb-2">{eachNews.content}</p>
               <div className="flex">
