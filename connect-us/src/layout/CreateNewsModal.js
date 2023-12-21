@@ -8,7 +8,7 @@ function CreateNewsModal() {
     const [newsData, setNewsData] = useState({
       title: "",
       content: "",
-      category: ""
+      category: "Holiday"
     })
     const retrievedKey = localStorage.getItem('accessToken')
     const headers = {
@@ -106,7 +106,6 @@ function CreateNewsModal() {
                 />
                 <input
                   value={newsData.category}
-                  onChange={handleInputChange}
                   type="text"
                   name="category"
                   placeholder="Category (e.g General, Leave etc)"
