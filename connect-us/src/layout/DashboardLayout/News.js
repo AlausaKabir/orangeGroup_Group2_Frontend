@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import CreateNewsModal from "../AuthLayout/CreateNewsModal";
+import CreateNewsModal from "../CreateNewsModal";
 
 function News(){
   const [responseData, setResponseData] = useState([]);
