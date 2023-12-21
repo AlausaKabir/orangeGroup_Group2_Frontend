@@ -8,7 +8,7 @@ function CreateNewsModal() {
     const [newsData, setNewsData] = useState({
       title: "",
       content: "",
-      category: ""
+      category: "Holiday"
     })
     const retrievedKey = localStorage.getItem('accessToken')
     const headers = {
@@ -50,8 +50,7 @@ function CreateNewsModal() {
               document.getElementById('modal').classList.add("hidden")
               setNewsData({
                 title: "",
-                content: "",
-                category: ""
+                content: ""
           })
               console.log("Response", response.data)
   
@@ -106,10 +105,9 @@ function CreateNewsModal() {
                 />
                 <input
                   value={newsData.category}
-                  onChange={handleInputChange}
                   type="text"
                   name="category"
-                  placeholder="Category (e.g General, Leave etc)"
+                  placeholder="Category (Holiday)"
                   required
                   className="border-b border-orange-600 w-full py-1 mt-12 px-5 outline-none"
                 />
