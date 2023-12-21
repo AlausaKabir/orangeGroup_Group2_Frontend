@@ -45,7 +45,7 @@ function CreateNewsModal() {
       if (newsData.title && newsData.content) {
         axios.post("https://connectus-4ev0.onrender.com/news", newsData, { headers },)
           .then((response) => {
-              toast.success("news created successfully")
+              toast.success("News created successfully")
               setShow(prev => !prev)
               document.getElementById('modal').classList.add("hidden")
               setNewsData({

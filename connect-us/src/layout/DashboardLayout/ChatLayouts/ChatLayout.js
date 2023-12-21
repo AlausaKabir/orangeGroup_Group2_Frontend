@@ -36,7 +36,7 @@ function ChatLayout() {
         if (messageData.newMessage) {
           axios.post("https://connectus-4ev0.onrender.com/messages/create-message", data, { headers },)
             .then((response) => {
-                toast.success("message sent")
+                toast.success("Message sent")
                 document.getElementById("messageForm").value = ""
 
             })
@@ -62,9 +62,9 @@ function ChatLayout() {
       };
     
       const handleDelete = (selectedMessage) => {
-        // console.log(selectedMessage.id)
         axios.delete(`https://connectus-4ev0.onrender.com/messages/${selectedMessage.id}`, { headers })
           .then(response => {
+            toast.success("Message deleted successful")
             console.log('DELETE request successful:', response.data);
           })
           .catch(error => {
@@ -99,11 +99,16 @@ function ChatLayout() {
                                 <div>
                                     <p className="text-lg pb-1">{message.content}</p> 
                                     <div className="flex ">
-                                        <p className="text-xs mr-2">{message.sender.firstName}</p>
+                                        <p className="text-xs mr-1">{message.sender.firstName}</p>
                                         <p className="text-xs">{message.sender.lastName}</p>
                                     </div>
                                 </div>
-                                <button onClick={() => handleDelete(message)} className="bg-orange-200 text-pink-700 font-semibold h-8 px-4 rounded-lg">D</button>
+                                <button onClick={() => handleDelete(message)} className="text-orange-700 font-semibold h-8 px-4 rounded-lg">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                  </svg>
+                                </button>
                             </div>
                         })}
                         <div className="absolute items-center flex justify-between mb-2 bottom-0 bg-pink-50 w-2/3 mt-4 px-5 rounded-md">

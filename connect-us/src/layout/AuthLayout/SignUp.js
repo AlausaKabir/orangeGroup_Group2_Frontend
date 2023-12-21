@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -90,7 +90,6 @@ function SignUp() {
   return (
     <>
       <div className="flex flex-col justify-center items-center h-80 w-72 mx-auto mt-28 md:w-[400px]">
-        <ToastContainer />
         <h1 className="text-3xl font-bold text-center mb-6">Account Set-up</h1>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-wrap md:space-x-9">

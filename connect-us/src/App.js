@@ -10,6 +10,7 @@ import AuthRequired from './layout/AuthLayout/AuthRequired';
 import DashboardLayout from './layout/DashboardLayout/DashoardLayout';
 import ChatLayout from './layout/DashboardLayout/ChatLayouts/ChatLayout';
 import ResetPassword from './layout/AuthLayout/ResetPassword';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             </Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }
