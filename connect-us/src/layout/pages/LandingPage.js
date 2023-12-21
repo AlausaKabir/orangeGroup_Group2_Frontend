@@ -11,8 +11,6 @@ function Home() {
              or
                 <Link to="/login" className="bg-orange-500 text-white px-8 py-1 rounded-sm ml-8">Login</Link>
             </div>
-
-            <Link to="/dashboard" className="bg-orange-500 text-white mt-8 px-24 py-1 rounded-sm ml-8">Dashboard</Link>
         </div>
     )
 };

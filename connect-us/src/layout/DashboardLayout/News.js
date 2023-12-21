@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import CreateNewsModal from "../CreateNewsModal";
 
-
-    function News(){
+function News(){
   const [responseData, setResponseData] = useState([]);
   const retrievedKey = localStorage.getItem('accessToken')
+
 
   const headers = {
     'Content-Type': 'application/json',
@@ -21,7 +22,6 @@ import axios from 'axios';
         console.log('Error:', err.message);
       }
     };
-    console.log(responseData)
     fetchData();
   }, [setResponseData]);
 
@@ -29,9 +29,12 @@ import axios from 'axios';
     <div>
       {responseData ? (
         <div>
-          <h1 className="text-3xl text-center mt-8 font-semibold">Announcements</h1>
+          <div className="flex items-center">
+            <h1 className="text-3xl text-center mt-6 ml-6 mr-16 font-semibold">Announcements</h1>
+            <CreateNewsModal />
+          </div>
           {responseData.map(eachNews => {
-            return <div key={eachNews.id} className="bg-pink-50 py-2 px-3 mx-4 my-8 rounded-sm">
+            return <div key={eachNews._id} className="bg-pink-50 py-2 px-3 mx-4 my-8 rounded-sm">
               <h2 className="text-2xl mt-2 pb-2">{eachNews.title}</h2>
               <p className="text-lg pb-2">{eachNews.content}</p>
               <div className="flex">
